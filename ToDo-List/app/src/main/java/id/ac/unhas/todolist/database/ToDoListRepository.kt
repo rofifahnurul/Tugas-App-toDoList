@@ -43,4 +43,20 @@ class ToDoListRepository(application: Application) {
         }
     }
 
+    fun deadlineDesc() : LiveData<List<ToDoList>>?{
+        return toDoListDao?.deadlineDesc()
+    }
+
+    fun deadlineAsc() : LiveData<List<ToDoList>>?{
+        return toDoListDao?.deadlineAsc()
+    }
+
+    fun dateDesc() : LiveData<List<ToDoList>>?{
+        return toDoListDao?.dateDesc()
+    }
+
+    fun dateAsc() : LiveData<List<ToDoList>>?{
+        return toDoListDao?.dateAsc()
+    }
+
 }

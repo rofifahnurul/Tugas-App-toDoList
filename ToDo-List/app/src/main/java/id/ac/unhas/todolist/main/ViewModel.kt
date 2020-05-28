@@ -27,4 +27,20 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
         toDoListRepository.update(toDoList)
     }
 
+    fun deadlineDesc():LiveData<List<ToDoList>>? {
+        return toDoListRepository.deadlineDesc()
+    }
+
+    fun deadlineAsc():LiveData<List<ToDoList>>? {
+        return toDoListRepository.deadlineAsc()
+    }
+
+    fun dateDesc():LiveData<List<ToDoList>>? {
+        return toDoListRepository.dateDesc()
+    }
+
+    fun dateAsc():LiveData<List<ToDoList>>? {
+        return toDoListRepository.dateAsc()
+    }
+
 }

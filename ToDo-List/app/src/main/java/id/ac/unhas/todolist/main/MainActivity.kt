@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.EditText
+
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.text.format.DateFormat
+
 import java.util.*
 
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: ViewModel
     private lateinit var adapter: Adapter
+    private lateinit var filterBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,52 @@ class MainActivity : AppCompatActivity() {
         viewModel.getList()?.observe(this, Observer {
             adapter.setList(it)
         })
+
+        filterBtn = findViewById(R.id.filterBtn)
+
+        filterBtn.setOnClickListener {
+
+            val items = arrayOf("Sort By Date Created", "Sort By Deadline")
+            val builder =
+                AlertDialog.Builder(this)
+            val alert = AlertDialog.Builder(this)
+            builder.setItems(items) { dialog, which ->
+                // the user clicked on colors[which]
+                when (which) {
+                    0 -> {
+                        alert.setTitle(items[which])
+                            .setPositiveButton("Dari terbaru") { dialog, which ->
+                                viewModel.dateDesc()?.observe(this, Observer {
+                                    adapter.setList(it)
+                                })
+                            }
+                            .setNegativeButton("Dari terlama") { dialog, which ->
+                                viewModel.dateAsc()?.observe(this, Observer {
+                                    adapter.setList(it)
+                                })
+                            }
+                        alert.show()
+
+                    }
+                    1 -> {
+                        alert.setTitle(items[which])
+                            .setPositiveButton("Dari terbaru") { dialog, which ->
+                                viewModel.deadlineDesc()?.observe(this, Observer {
+                                    adapter.setList(it)
+                                })
+                            }
+                            .setNegativeButton("Dari terlama") { dialog, which ->
+                                viewModel.deadlineAsc()?.observe(this, Observer {
+                                    adapter.setList(it)
+                                })
+                            }
+                        alert.show()
+
+                    }
+                }
+            }
+            builder.show()
+        }
 
     }
 
@@ -101,10 +149,10 @@ class MainActivity : AppCompatActivity() {
             val minute = calendar.get(Calendar.MINUTE)
             val tpd = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{
                     timepicker,hour, minute ->
-                DateFormat.is24HourFormat(this)
+
                 timeDeadline.setText(","+hour+":"+minute+" ")
             }, hour, minute,false)
-
+            DateFormat.is24HourFormat(this)
             tpd.show()
         }
 

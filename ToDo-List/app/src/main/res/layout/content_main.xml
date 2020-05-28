@@ -2,75 +2,81 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="18dp"
+    android:layout_marginBottom="23dp"
     android:layout_height="wrap_content"
-    android:layout_marginStart="5dp"
-    android:layout_marginEnd="5dp"
     android:background="@drawable/rounded"
-    android:layout_marginBottom="20dp"
+    android:orientation="vertical">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/option"
-        android:layout_width="59dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginStart="1dp"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
         android:src="@drawable/ic_option"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+    <TextView
+        android:id="@+id/dateContent"
+        android:layout_marginStart="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/addDate"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
             <TextView
                 android:id="@+id/titleContent"
                 android:layout_marginEnd="7dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp"
+
                 android:textStyle="bold"
                 android:text="Title"
                 android:textColor="@android:color/black"
-                android:textSize="22sp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_marginEnd="7dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="1dp"
-                    android:textStyle=""
-                    android:text="Note : "
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                android:textAlignment="center"
+                android:textSize="21sp" />
+
                 <TextView
                     android:id="@+id/noteContent"
+                    android:textAlignment="center"
+                    android:text="@string/Note"
                     android:layout_marginEnd="7dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="1dp"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-            </LinearLayout>
-            <TextView
-                android:id="@+id/dateContent"
-                android:layout_marginEnd="7dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="2dp"
-                android:text="@string/addDate"
-                android:textColor="@android:color/black"
-                android:textSize="15sp" />
+                    android:textSize="16sp" />
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp">
                 <TextView
                     android:id="@+id/deadlineDateContent"
+                    android:layout_marginStart="12dp"
                     android:layout_marginEnd="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -88,6 +94,6 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
-        </LinearLayout>
-</LinearLayout>
 
+</LinearLayout>
+</LinearLayout>

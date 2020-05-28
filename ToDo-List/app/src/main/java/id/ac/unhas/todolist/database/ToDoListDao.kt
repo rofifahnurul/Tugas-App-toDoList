@@ -16,4 +16,18 @@ interface ToDoListDao {
 
     @Update
     suspend fun updateList(toDoList: ToDoList)
+
+    @Query("SELECT * FROM toDoList ORDER BY deadline DESC, timeDeadline DESC")
+    fun deadlineDesc() : LiveData<List<ToDoList>>
+
+    @Query("SELECT * FROM toDoList ORDER BY deadline ASC, timeDeadline ASC")
+    fun deadlineAsc() : LiveData<List<ToDoList>>
+
+    @Query("SELECT * FROM toDoList ORDER BY date DESC")
+    fun dateDesc() : LiveData<List<ToDoList>>
+
+    @Query("SELECT * FROM toDoList ORDER BY date ASC")
+    fun dateAsc() : LiveData<List<ToDoList>>
+
+
 }
