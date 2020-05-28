@@ -2,9 +2,12 @@ package id.ac.unhas.todolist.main
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -53,26 +56,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showAlertDialogAdd() {
-        val alert = AlertDialog.Builder(this)
+        val inflater = LayoutInflater.from(this)
+        val view = inflater.inflate(R.layout.add_layout,null)
+        val title = view.findViewById<TextView>(R.id.addTittle)
+        val saveBtn = view.findViewById<Button>(R.id.saveBtn)
+        val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
 
-        val editText = EditText(applicationContext)
-        editText.hint = "Enter your to do list"
+        val alert = AlertDialog.Builder(this).setView(view).show()
 
-        alert.setTitle("To Do List")
-        alert.setView(editText)
 
-        alert.setPositiveButton("Save") { dialog, _ ->
+        saveBtn.setOnClickListener {
             viewModel.insertList(
-                ToDoList(toDoList = editText.text.toString())
+                ToDoList(toDoList = title.text.toString())
             )
-            dialog.dismiss()
+            alert.dismiss()
         }
 
-        alert.setNegativeButton("Cancel") { dialog, _ ->
-            dialog.dismiss()
+        cancelBtn.setOnClickListener {
+            alert.dismiss()
         }
 
-        alert.show()
+        alert.create()
     }
 
     private fun showAlertMenu(toDoList: ToDoList) {

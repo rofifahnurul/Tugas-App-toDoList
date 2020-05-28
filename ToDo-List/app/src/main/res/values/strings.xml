@@ -3,4 +3,8 @@
     <string name="Add">Add</string>
     <string name="listContent">To Do List</string>
     <string name="title">To Do List  </string>
+    <string name="Title">Title </string>
+    <string name="hintTitle">Enter Your Title</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>
