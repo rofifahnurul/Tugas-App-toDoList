@@ -50,6 +50,7 @@ class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.noteContent.text = toDoList.note
         itemView.titleContent.text = toDoList.toDoList
         itemView.deadlineDateContent.text = toDoList.deadline
+        itemView.deadlineTimeContent.text = toDoList.timeDeadline
         itemView.dateContent.text = toDoList.date
         option.setOnClickListener {
             listener(toDoList,layoutPosition)

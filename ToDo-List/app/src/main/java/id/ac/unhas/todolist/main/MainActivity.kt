@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         val title = view.findViewById<TextView>(R.id.addTittle)
         val dateCreate = view.findViewById<TextView>(R.id.addDate)
         val deadline = view.findViewById<TextView>(R.id.addDateDeadline)
+        val timeDeadline = view.findViewById<TextView>(R.id.addTimeDeadline)
 
         val saveBtn = view.findViewById<Button>(R.id.saveBtn)
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
@@ -77,38 +78,35 @@ class MainActivity : AppCompatActivity() {
         val date = simpleFormat.format(calendar.time)
         dateCreate.setText("Created at : $date")
 
-        //Date Picker
+
         val deadlineBtn = view.findViewById<Button>(R.id.dateDeadline)
+        val timeDeadlineBtn = view.findViewById<Button>(R.id.timeDeadline)
+        //Date Picker
         deadlineBtn.setOnClickListener {
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
             var day = calendar.get(Calendar.DAY_OF_MONTH)
-            val hour = calendar.get(Calendar.HOUR)
-            val minute = calendar.get(Calendar.MINUTE)
+
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener {
                     view, year, month, day ->
                 val monthFix = month + 1
                 deadline.setText("Deadline at : "+day+","+monthFix+" "+year)
             }, year, month, day)
             dpd.show()
-
-            /*
-            val tpd = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{
-                timepicker,hour, minute ->
-
-            }, hour, minute,false)
-            DateFormat.is24HourFormat(this)
-            tpd.show()
-
-            var setHour = hour
-            var setMinute = minute
-            */
-
-
-            //deadline.setText("Deadline at : "+setDay+" "+setMonth+" "+setYear+" Time : "+setHour+ ":"+setMinute+" ")
-
         }
 
+        //Time Picker
+        timeDeadlineBtn.setOnClickListener {
+            val hour = calendar.get(Calendar.HOUR)
+            val minute = calendar.get(Calendar.MINUTE)
+            val tpd = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{
+                    timepicker,hour, minute ->
+                DateFormat.is24HourFormat(this)
+                timeDeadline.setText(" "+hour+":"+minute+" ")
+            }, hour, minute,false)
+
+            tpd.show()
+        }
 
         val alert = AlertDialog.Builder(this).setView(view).show()
 
@@ -118,7 +116,8 @@ class MainActivity : AppCompatActivity() {
                 toDoList =title.text.toString(),
                 note = note.text.toString(),
                 date=dateCreate.text.toString(),
-                deadline = deadline.text.toString())
+                deadline = deadline.text.toString(),
+                timeDeadline = timeDeadline.text.toString())
             )
             alert.dismiss()
         }
