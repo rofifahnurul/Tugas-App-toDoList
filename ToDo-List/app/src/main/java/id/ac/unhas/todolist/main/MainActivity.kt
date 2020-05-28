@@ -19,6 +19,8 @@ import id.ac.unhas.todolist.database.ToDoList
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
+import android.text.format.DateFormat
 import java.util.*
 
 
@@ -81,13 +83,29 @@ class MainActivity : AppCompatActivity() {
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val hour = calendar.get(Calendar.HOUR)
+            val minute = calendar.get(Calendar.MINUTE)
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener {
                     view, year, month, day ->
 
                 // Display Selected date in TextView
-                deadline.setText("Deadline at : " +day+ " " +month+ " " + year)
+                //deadline.setText("Deadline at : " +day+ " " +month+ " " + year)
             }, year, month, day)
             dpd.show()
+            var setYear = year
+            var setMonth = month
+            var setDay = day
+
+            val tpd = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{
+                timepicker,hour, minute ->
+
+            }, hour, minute,false)
+            DateFormat.is24HourFormat(this)
+            tpd.show()
+            val setHour = hour
+            val setMinute = minute
+            deadline.setText("Deadline at : "+setDay+" "+setMonth+" "+setYear+" "+setHour+ " "+setMinute+" ")
+
         }
 
 
