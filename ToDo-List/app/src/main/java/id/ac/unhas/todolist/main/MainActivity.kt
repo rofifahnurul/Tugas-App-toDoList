@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.unhas.todolist.R
 import id.ac.unhas.todolist.database.ToDoList
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,16 +60,23 @@ class MainActivity : AppCompatActivity() {
     private fun showAlertDialogAdd() {
         val inflater = LayoutInflater.from(this)
         val view = inflater.inflate(R.layout.add_layout,null)
+
         val note = view.findViewById<TextView>(R.id.addNote)
         val title = view.findViewById<TextView>(R.id.addTittle)
+        val dateCreate = view.findViewById<TextView>(R.id.addDate)
         val saveBtn = view.findViewById<Button>(R.id.saveBtn)
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
+
+        val calendar = Calendar.getInstance()
+        val simpleFormat = SimpleDateFormat("\ndd-MM-yyyy \nhh:mm:ss a")
+        val date = simpleFormat.format(calendar.time)
+        dateCreate.setText("Created at : $date")
 
         val alert = AlertDialog.Builder(this).setView(view).show()
 
 
         saveBtn.setOnClickListener {
-            viewModel.insertList(ToDoList(toDoList =title.text.toString(),note = note.text.toString())
+            viewModel.insertList(ToDoList(toDoList =title.text.toString(),note = note.text.toString(),date=dateCreate.text.toString())
             )
             alert.dismiss()
         }
@@ -111,12 +120,19 @@ class MainActivity : AppCompatActivity() {
         val editTitle = view.findViewById<TextView>(R.id.editTittle)
         val editNote = view.findViewById<TextView>(R.id.editNote)
         val editBtn = view.findViewById<Button>(R.id.editBtn)
+        val editDate = view.findViewById<TextView>(R.id.editDate)
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
 
         val alert = AlertDialog.Builder(this).setView(view).show()
 
+        val calendar = Calendar.getInstance()
+        val simpleFormat = SimpleDateFormat("\ndd-MM-yyyy \nhh:mm:ss a")
+        val date = simpleFormat.format(calendar.time)
+        editDate.setText("Updated at : $date")
+
         editTitle.setText(toDoList.toDoList)
         editNote.setText(toDoList.note)
+
         /*
         val editText = EditText(applicationContext)
         editText.setText(toDoList.toDoList)
@@ -127,6 +143,7 @@ class MainActivity : AppCompatActivity() {
         editBtn.setOnClickListener {
             toDoList.note = editNote.text.toString()
             toDoList.toDoList = editTitle.text.toString()
+            toDoList.date = editDate.text.toString()
             viewModel.updateList(toDoList)
             val toast = Toast.makeText(this, messageUpdate, Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.TOP, 0,-20)
