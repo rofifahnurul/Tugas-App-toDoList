@@ -13,7 +13,7 @@
         android:id="@+id/option"
         android:layout_width="59dp"
         android:layout_height="51dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
         android:layout_marginStart="1dp"
         android:src="@drawable/ic_option"/>
@@ -32,17 +32,29 @@
                 android:textStyle="bold"
                 android:text="Title"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
-            <TextView
-                android:id="@+id/noteContent"
-                android:layout_marginEnd="7dp"
+                android:textSize="22sp" />
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:textStyle="bold"
-                android:text="Note"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginEnd="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="1dp"
+                    android:textStyle=""
+                    android:text="Note : "
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/noteContent"
+                    android:layout_marginEnd="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="1dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
             <TextView
                 android:id="@+id/dateContent"
                 android:layout_marginEnd="7dp"

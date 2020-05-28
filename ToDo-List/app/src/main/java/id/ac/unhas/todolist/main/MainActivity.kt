@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
 
         val calendar = Calendar.getInstance()
-        val simpleFormat = SimpleDateFormat("\ndd-MM-yyyy \nhh:mm:ss a")
+        val simpleFormat = SimpleDateFormat("dd-MM-yyyy hh:mm a")
         val date = simpleFormat.format(calendar.time)
         dateCreate.setText("Created at : $date")
 
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity() {
         val alert = AlertDialog.Builder(this).setView(view).show()
 
         val calendar = Calendar.getInstance()
-        val simpleFormat = SimpleDateFormat("\ndd-MM-yyyy \nhh:mm:ss a")
+        val simpleFormat = SimpleDateFormat("dd-MM-yyyy hh:mm a")
         val date = simpleFormat.format(calendar.time)
         editDate.setText("Updated at : $date")
 
