@@ -17,4 +17,6 @@
     <string name="Deadline">Deadline</string>
     <string name="addDeadline">Pick Date</string>
     <string name="addTimeDeadline">Pick Time</string>
+    <string name="editDeadline">Edit Date</string>
+    <string name="editTimeDeadline">Edit Time</string>
 </resources>

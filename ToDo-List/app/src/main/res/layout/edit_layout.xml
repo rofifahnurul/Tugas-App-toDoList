@@ -52,24 +52,49 @@
         android:layout_height="match_parent"
         android:id="@+id/editNote"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="@string/Deadline"
-        android:textAlignment="center"/>
-
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/editDeadline"/>
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"
+            android:paddingEnd="5dp"
+            android:layout_marginEnd="3dp"
+            android:text="@string/Deadline" />
+
+
+        <Button
+            android:id="@+id/dateDeadlineBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/rounded"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/editDeadline"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="match_parent"
+            android:text="@string/editTimeDeadline"
+            android:background="@drawable/rounded"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:id="@+id/timeDeadlineBtn"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -81,6 +106,26 @@
         android:layout_marginEnd="10dp"
         android:id="@+id/editDate"
         android:text="@string/editDate" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:id="@+id/editDateDeadline"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:id="@+id/editTimeDeadline" />
 
     <LinearLayout
         android:layout_width="wrap_content"
