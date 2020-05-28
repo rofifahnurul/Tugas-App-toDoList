@@ -51,6 +51,26 @@
         android:layout_marginEnd="10dp"
         android:layout_height="match_parent"
         android:id="@+id/editNote"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/Deadline"
+        android:textAlignment="center"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_height="match_parent"
+        android:id="@+id/editDeadline"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

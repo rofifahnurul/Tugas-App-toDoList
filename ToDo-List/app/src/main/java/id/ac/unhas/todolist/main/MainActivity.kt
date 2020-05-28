@@ -64,6 +64,8 @@ class MainActivity : AppCompatActivity() {
         val note = view.findViewById<TextView>(R.id.addNote)
         val title = view.findViewById<TextView>(R.id.addTittle)
         val dateCreate = view.findViewById<TextView>(R.id.addDate)
+        val deadline = view.findViewById<TextView>(R.id.addDeadline)
+
         val saveBtn = view.findViewById<Button>(R.id.saveBtn)
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
 
@@ -119,8 +121,10 @@ class MainActivity : AppCompatActivity() {
 
         val editTitle = view.findViewById<TextView>(R.id.editTittle)
         val editNote = view.findViewById<TextView>(R.id.editNote)
-        val editBtn = view.findViewById<Button>(R.id.editBtn)
         val editDate = view.findViewById<TextView>(R.id.editDate)
+        val editDeadline = view.findViewById<TextView>(R.id.editDeadline)
+
+        val editBtn = view.findViewById<Button>(R.id.editBtn)
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
 
         val alert = AlertDialog.Builder(this).setView(view).show()
