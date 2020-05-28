@@ -10,5 +10,7 @@ data class ToDoList(
     @ColumnInfo(name = "id")
     val id: Int? = null,
     @ColumnInfo(name = "toDoList")
-    var toDoList: String
+    var toDoList: String,
+    @ColumnInfo(name = "note")
+    var note: String
 )

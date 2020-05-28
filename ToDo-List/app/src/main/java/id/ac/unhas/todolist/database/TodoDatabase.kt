@@ -5,25 +5,26 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [ToDoList::class], exportSchema = false, version = 1)
-abstract class AppDatabase : RoomDatabase() {
+@Database(entities = [ToDoList::class], exportSchema = false, version = 2)
+abstract class TodoDatabase : RoomDatabase() {
 
     abstract fun toDoListDao(): ToDoListDao
 
     companion object {
 
         private const val DB_NAME = "ToDoList_DB"
-        private var instance: AppDatabase? = null
+        private var instance: TodoDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase? {
+        fun getInstance(context: Context): TodoDatabase? {
             if (instance == null) {
-                synchronized(AppDatabase::class) {
+                synchronized(TodoDatabase::class) {
                     instance = Room
                         .databaseBuilder(
                             context,
-                            AppDatabase::class.java,
+                            TodoDatabase::class.java,
                             DB_NAME
                         )
+                        .fallbackToDestructiveMigration()
                         .build()
                 }
             }

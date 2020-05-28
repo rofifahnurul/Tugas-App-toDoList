@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     private fun showAlertDialogAdd() {
         val inflater = LayoutInflater.from(this)
         val view = inflater.inflate(R.layout.add_layout,null)
+        val note = view.findViewById<TextView>(R.id.addNote)
         val title = view.findViewById<TextView>(R.id.addTittle)
         val saveBtn = view.findViewById<Button>(R.id.saveBtn)
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
@@ -66,9 +67,8 @@ class MainActivity : AppCompatActivity() {
 
 
         saveBtn.setOnClickListener {
-            viewModel.insertList(
-                ToDoList(toDoList = title.text.toString())
-            )
+            viewModel.insertList(title.text.toString(),note.text.toString())
+
             alert.dismiss()
         }
 
@@ -107,12 +107,15 @@ class MainActivity : AppCompatActivity() {
 
         val inflater = LayoutInflater.from(this)
         val view = inflater.inflate(R.layout.edit_layout,null)
+
         val editTitle = view.findViewById<TextView>(R.id.editTittle)
+        val editNote = view.findViewById<TextView>(R.id.editNote)
         val editBtn = view.findViewById<Button>(R.id.editBtn)
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
 
         val alert = AlertDialog.Builder(this).setView(view).show()
         editTitle.setText(toDoList.toDoList)
+        editNote.setText(toDoList.note)
         /*
         val editText = EditText(applicationContext)
         editText.setText(toDoList.toDoList)
@@ -121,6 +124,7 @@ class MainActivity : AppCompatActivity() {
         alert.setView(editText)
 */
         editBtn.setOnClickListener {
+            toDoList.note = editNote.text.toString()
             toDoList.toDoList = editTitle.text.toString()
             viewModel.updateList(toDoList)
             val toast = Toast.makeText(this, messageUpdate, Toast.LENGTH_SHORT)

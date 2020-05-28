@@ -14,7 +14,7 @@ class ToDoListRepository(application: Application) {
     private var toDoList: LiveData<List<ToDoList>>? = null
 
     init {
-        val db = AppDatabase.getInstance(application.applicationContext)
+        val db = TodoDatabase.getInstance(application.applicationContext)
         toDoListDao = db?.toDoListDao()
         toDoList = toDoListDao?.getList()
     }
