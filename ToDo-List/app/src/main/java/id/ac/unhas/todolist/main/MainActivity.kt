@@ -114,6 +114,7 @@ class MainActivity : AppCompatActivity() {
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
 
         val alert = AlertDialog.Builder(this).setView(view).show()
+
         editTitle.setText(toDoList.toDoList)
         editNote.setText(toDoList.note)
         /*

@@ -10,4 +10,8 @@
     <string name="Note">Note</string>
     <string name="hintNote">Enter Your Note</string>
     <string name="edit">Edit</string>
+    <string name="addDate">Created at : </string>
+    <string name="editDate">Updated at : </string>
+    <string name="addAlert">Add Item </string>
+    <string name="editAlert">Edit Item below</string>
 </resources>

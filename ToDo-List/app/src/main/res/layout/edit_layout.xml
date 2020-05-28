@@ -12,6 +12,17 @@
         android:textStyle="bold"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:text="@string/editAlert"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/Title"
         android:textAlignment="center"/>
 
@@ -33,13 +44,23 @@
         android:text="@string/Note"
         android:textAlignment="center"/>
 
+
     <EditText
         android:layout_width="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_height="match_parent"
-        android:hint="@string/hintNote"
         android:id="@+id/editNote"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:id="@+id/editDate"
+        android:text="@string/editDate" />
 
     <LinearLayout
         android:layout_width="wrap_content"
