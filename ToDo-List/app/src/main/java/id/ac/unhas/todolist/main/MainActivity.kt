@@ -18,6 +18,7 @@ import id.ac.unhas.todolist.R
 import id.ac.unhas.todolist.database.ToDoList
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
+import android.app.DatePickerDialog
 import java.util.*
 
 
@@ -74,11 +75,31 @@ class MainActivity : AppCompatActivity() {
         val date = simpleFormat.format(calendar.time)
         dateCreate.setText("Created at : $date")
 
+        //Date Picker
+        val deadlineBtn = view.findViewById<Button>(R.id.addDeadline)
+        deadlineBtn.setOnClickListener {
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener {
+                    view, year, month, day ->
+
+                // Display Selected date in TextView
+                deadline.setText("Deadline at : " +day+ " " +month+ " " + year)
+            }, year, month, day)
+            dpd.show()
+        }
+
+
         val alert = AlertDialog.Builder(this).setView(view).show()
 
 
         saveBtn.setOnClickListener {
-            viewModel.insertList(ToDoList(toDoList =title.text.toString(),note = note.text.toString(),date=dateCreate.text.toString())
+            viewModel.insertList(ToDoList(
+                toDoList =title.text.toString(),
+                note = note.text.toString(),
+                date=dateCreate.text.toString(),
+                deadline = deadline.text.toString())
             )
             alert.dismiss()
         }

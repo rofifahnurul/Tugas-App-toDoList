@@ -64,6 +64,15 @@
                 android:text="@string/addDate"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
+            <TextView
+                android:id="@+id/deadlineContent"
+                android:layout_marginEnd="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:text="@string/Deadline"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
         </LinearLayout>
 </LinearLayout>

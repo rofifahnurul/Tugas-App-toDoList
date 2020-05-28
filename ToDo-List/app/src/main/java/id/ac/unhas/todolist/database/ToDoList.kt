@@ -14,6 +14,8 @@ data class ToDoList(
     @ColumnInfo(name = "note")
     var note: String,
     @ColumnInfo(name = "date")
-    var date: String
+    var date: String,
+    @ColumnInfo(name = "deadline")
+    var deadline: String
 
 )

@@ -53,25 +53,34 @@
         android:layout_height="match_parent"
         android:hint="@string/hintNote"
         android:id="@+id/addNote"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:text="@string/Deadline"
-        android:textAlignment="center"/>
+        android:text="@string/Deadline" />
 
-    <EditText
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_height="match_parent"
-        android:hint="@string/hintNote"
+        android:text="@string/addDeadline"
+        android:background="@drawable/rounded"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:id="@+id/addDeadline"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"

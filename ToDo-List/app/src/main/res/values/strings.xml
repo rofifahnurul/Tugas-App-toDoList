@@ -13,6 +13,7 @@
     <string name="addDate">Created at : </string>
     <string name="editDate">Updated at : </string>
     <string name="addAlert">Add Item </string>
-    <string name="editAlert">Edit Item below</string>
+    <string name="editAlert">Edit Item</string>
     <string name="Deadline">Deadline</string>
+    <string name="addDeadline">Pick Date for Deadline</string>
 </resources>
