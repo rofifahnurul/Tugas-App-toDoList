@@ -49,7 +49,7 @@ class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bindItem(context: Context, toDoList: ToDoList, listener: (ToDoList, Int) -> Unit) {
         option=itemView.findViewById(R.id.option)
 
-        itemView.listContent.text = toDoList.toDoList
+        itemView.titleContent.text = toDoList.toDoList
 
         option.setOnClickListener {
             listener(toDoList,layoutPosition)
