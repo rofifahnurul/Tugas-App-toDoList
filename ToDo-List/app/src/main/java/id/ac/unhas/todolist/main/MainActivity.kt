@@ -67,8 +67,8 @@ class MainActivity : AppCompatActivity() {
 
 
         saveBtn.setOnClickListener {
-            viewModel.insertList(title.text.toString(),note.text.toString())
-
+            viewModel.insertList(ToDoList(toDoList =title.text.toString(),note = note.text.toString())
+            )
             alert.dismiss()
         }
 

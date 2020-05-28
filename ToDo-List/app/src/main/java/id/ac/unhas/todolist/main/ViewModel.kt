@@ -11,8 +11,8 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
     private var toDoListRepository = ToDoListRepository(application)
     private var toDoList: LiveData<List<ToDoList>>? = toDoListRepository.getList()
 
-    fun insertList(toDoList: String, note:String) {
-        toDoListRepository.insert(ToDoList(0,toDoList,note))
+    fun insertList(toDoList:ToDoList) {
+        toDoListRepository.insert(toDoList)
     }
 
     fun getList(): LiveData<List<ToDoList>>? {
