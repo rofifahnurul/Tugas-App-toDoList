@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         val note = view.findViewById<TextView>(R.id.addNote)
         val title = view.findViewById<TextView>(R.id.addTittle)
         val dateCreate = view.findViewById<TextView>(R.id.addDate)
-        val deadline = view.findViewById<TextView>(R.id.addDeadline)
+        val deadline = view.findViewById<TextView>(R.id.addDateDeadline)
 
         val saveBtn = view.findViewById<Button>(R.id.saveBtn)
         val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
@@ -78,33 +78,34 @@ class MainActivity : AppCompatActivity() {
         dateCreate.setText("Created at : $date")
 
         //Date Picker
-        val deadlineBtn = view.findViewById<Button>(R.id.addDeadline)
+        val deadlineBtn = view.findViewById<Button>(R.id.dateDeadline)
         deadlineBtn.setOnClickListener {
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            var day = calendar.get(Calendar.DAY_OF_MONTH)
             val hour = calendar.get(Calendar.HOUR)
             val minute = calendar.get(Calendar.MINUTE)
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener {
                     view, year, month, day ->
-
-                // Display Selected date in TextView
-                //deadline.setText("Deadline at : " +day+ " " +month+ " " + year)
+                val monthFix = month + 1
+                deadline.setText("Deadline at : "+day+","+monthFix+" "+year)
             }, year, month, day)
             dpd.show()
-            var setYear = year
-            var setMonth = month
-            var setDay = day
 
+            /*
             val tpd = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{
                 timepicker,hour, minute ->
 
             }, hour, minute,false)
             DateFormat.is24HourFormat(this)
             tpd.show()
-            val setHour = hour
-            val setMinute = minute
-            deadline.setText("Deadline at : "+setDay+" "+setMonth+" "+setYear+" "+setHour+ " "+setMinute+" ")
+
+            var setHour = hour
+            var setMinute = minute
+            */
+
+
+            //deadline.setText("Deadline at : "+setDay+" "+setMonth+" "+setYear+" Time : "+setHour+ ":"+setMinute+" ")
 
         }
 
@@ -176,13 +177,6 @@ class MainActivity : AppCompatActivity() {
         editTitle.setText(toDoList.toDoList)
         editNote.setText(toDoList.note)
 
-        /*
-        val editText = EditText(applicationContext)
-        editText.setText(toDoList.toDoList)
-
-        alert.setTitle("Edit Your To Do List")
-        alert.setView(editText)
-*/
         editBtn.setOnClickListener {
             toDoList.note = editNote.text.toString()
             toDoList.toDoList = editTitle.text.toString()
