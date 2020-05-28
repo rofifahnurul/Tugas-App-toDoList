@@ -104,27 +104,38 @@ class MainActivity : AppCompatActivity() {
 
     private fun showAlertDialogEdit(toDoList: ToDoList) {
         val messageUpdate="To Do List telah diupdate"
-        val alert = AlertDialog.Builder(this)
 
+        val inflater = LayoutInflater.from(this)
+        val view = inflater.inflate(R.layout.edit_layout,null)
+        val editTitle = view.findViewById<TextView>(R.id.editTittle)
+        val editBtn = view.findViewById<Button>(R.id.editBtn)
+        val cancelBtn = view.findViewById<Button>(R.id.cancelBtn)
+
+        val alert = AlertDialog.Builder(this).setView(view).show()
+        editTitle.setText(toDoList.toDoList)
+        /*
         val editText = EditText(applicationContext)
         editText.setText(toDoList.toDoList)
 
         alert.setTitle("Edit Your To Do List")
         alert.setView(editText)
-
-        alert.setPositiveButton("Update") { dialog, _ ->
-            toDoList.toDoList = editText.text.toString()
+*/
+        editBtn.setOnClickListener {
+            toDoList.toDoList = editTitle.text.toString()
             viewModel.updateList(toDoList)
             val toast = Toast.makeText(this, messageUpdate, Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.TOP, 0,-20)
             toast.show()
-            dialog.dismiss()
+            alert.dismiss()
         }
 
-        alert.setNegativeButton("Cancel") { dialog, _ ->
-            dialog.dismiss()
+
+        cancelBtn.setOnClickListener {
+            alert.dismiss()
+        }
+        alert.create()
         }
 
-        alert.show()
+
     }
-}
+
