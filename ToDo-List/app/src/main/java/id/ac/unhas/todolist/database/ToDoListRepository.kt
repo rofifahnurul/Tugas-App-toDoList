@@ -59,4 +59,8 @@ class ToDoListRepository(application: Application) {
         return toDoListDao?.dateAsc()
     }
 
+    fun search(toDoList: String) : LiveData<List<ToDoList>>?{
+        return toDoListDao?.search(toDoList)
+    }
+
 }

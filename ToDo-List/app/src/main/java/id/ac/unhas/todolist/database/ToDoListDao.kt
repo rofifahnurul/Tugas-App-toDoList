@@ -29,5 +29,8 @@ interface ToDoListDao {
     @Query("SELECT * FROM toDoList ORDER BY date ASC")
     fun dateAsc() : LiveData<List<ToDoList>>
 
+    @Query("SELECT * FROM toDoList WHERE toDoList LIKE :toDoList")
+    fun search(toDoList: String) : LiveData<List<ToDoList>>
+
 
 }

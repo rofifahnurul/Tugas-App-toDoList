@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -94,18 +93,60 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu (menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_main, menu)
+
+        if (menu != null) {
+            search(menu)
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.addMenu -> showAlertDialogAdd()
-        }
+                R.id.addMenu ->
+                showAlertDialogAdd()
+
+            }
+
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun search(menu:Menu){
+        val item = menu?.findItem(R.id.search)
+
+        val searchView = item?.actionView as androidx.appcompat.widget.SearchView?
+        searchView?.isSubmitButtonEnabled = true
+
+        searchView?.setOnQueryTextListener(
+            object: androidx.appcompat.widget.SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    if(query != null){
+                        getItems(query)
+                    }
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    if(newText != null){
+                        getItems(newText)
+                    }
+                    return true
+                }
+            }
+        )
+
+    }
+
+    private fun getItems(searchText: String){
+        var searchText = searchText
+        searchText = "%$searchText%"
+
+        viewModel.search(searchText)?.observe(this, Observer {
+            adapter.setList(it)
+        })
     }
 
     private fun showAlertDialogAdd() {

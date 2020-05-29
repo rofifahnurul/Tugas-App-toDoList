@@ -43,4 +43,8 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
         return toDoListRepository.dateAsc()
     }
 
+    fun search(toDoList: String):LiveData<List<ToDoList>>?{
+        return toDoListRepository.search(toDoList)
+    }
+
 }
