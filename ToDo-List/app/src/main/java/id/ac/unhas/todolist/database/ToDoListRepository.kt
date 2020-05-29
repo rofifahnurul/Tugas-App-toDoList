@@ -1,9 +1,7 @@
 package id.ac.unhas.todolist.database
 
-
 import android.app.Application
 import androidx.lifecycle.LiveData
-
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking

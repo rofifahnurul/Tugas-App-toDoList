@@ -54,13 +54,13 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginStart="30dp"
@@ -75,11 +75,12 @@
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:background="@drawable/rounded"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorLight"
+            android:textSize="11sp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="@string/editDeadline"
-            android:textSize="13sp"
             android:textStyle="bold" />
 
         <Button
@@ -88,8 +89,9 @@
             android:layout_marginEnd="10dp"
             android:layout_height="match_parent"
             android:text="@string/editTimeDeadline"
-            android:background="@drawable/rounded"
-            android:textSize="13sp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorLight"
+            android:textSize="11sp"
             android:textStyle="bold"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -130,7 +132,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
@@ -139,7 +142,8 @@
             android:layout_width="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded"
+            android:background="@drawable/round1"
+            android:textColor="@android:color/white"
             android:id="@+id/editBtn"
             android:textStyle="bold"
             android:text="@string/edit"/>
@@ -147,7 +151,8 @@
             android:layout_width="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded"
+            android:background="@drawable/round1"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
             android:id="@+id/cancelBtn"
             android:text="@string/cancel"/>

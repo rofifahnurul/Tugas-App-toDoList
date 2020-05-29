@@ -37,6 +37,7 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
 
     fun dateDesc():LiveData<List<ToDoList>>? {
         return toDoListRepository.dateDesc()
+
     }
 
     fun dateAsc():LiveData<List<ToDoList>>? {

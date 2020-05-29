@@ -21,22 +21,30 @@
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         android:text="@string/title"
+        android:textStyle="bold"
         android:textAlignment="center">
     </TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal">
     <Button
         android:id="@+id/filterBtn"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:background="@drawable/ic_filter"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/SortBy"/>
+            android:layout_gravity="center"
+            android:text="@string/SortBy"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

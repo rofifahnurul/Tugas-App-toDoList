@@ -46,12 +46,14 @@ class Adapter(private val context: Context?, private val listener: (ToDoList, In
 class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bindItem(context: Context, toDoList: ToDoList, listener: (ToDoList, Int) -> Unit) {
         val option :ImageView
+
         option=itemView.findViewById(R.id.option)
         itemView.noteContent.text = toDoList.note
         itemView.titleContent.text = toDoList.toDoList
         itemView.deadlineDateContent.text = toDoList.deadline
         itemView.deadlineTimeContent.text = toDoList.timeDeadline
         itemView.dateContent.text = toDoList.date
+
         option.setOnClickListener {
             listener(toDoList,layoutPosition)
         }
