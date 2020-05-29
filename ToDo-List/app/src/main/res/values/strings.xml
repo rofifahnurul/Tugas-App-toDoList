@@ -2,7 +2,7 @@
     <string name="app_name">To Do List</string>
     <string name="Add">Add</string>
     <string name="listContent">To Do List</string>
-    <string name="title">To Do List  </string>
+    <string name="title">What is your to do list for today?</string>
     <string name="Title">Title </string>
     <string name="hintTitle">Enter Your Title</string>
     <string name="save">Save</string>
@@ -19,4 +19,5 @@
     <string name="addTimeDeadline">Pick Time</string>
     <string name="editDeadline">Edit Date</string>
     <string name="editTimeDeadline">Edit Time</string>
+    <string name="SortBy">Sort By </string>
 </resources>

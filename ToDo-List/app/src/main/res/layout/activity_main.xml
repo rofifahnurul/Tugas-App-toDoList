@@ -4,29 +4,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:background="@color/colorLight"
     tools:context=".main.MainActivity">
+
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_event_note_black_24dp"/>
     <TextView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
         android:text="@string/title"
         android:textAlignment="center">
     </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <Button
         android:id="@+id/filterBtn"
+        android:layout_marginStart="20dp"
         android:layout_width="38dp"
         android:layout_height="38dp"
-        android:background="@drawable/ic_filter">
+        android:background="@drawable/ic_filter"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SortBy"/>
+    </LinearLayout>
 
-    </Button>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginStart="10dp"
+       android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
         android:id="@+id/listRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -35,7 +35,7 @@
         android:paddingEnd="15dp"
         android:text="@string/addDate"
         android:textAlignment="textEnd"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorLight"
         android:textSize="15sp" />
 </LinearLayout>
     <LinearLayout
@@ -49,10 +49,9 @@
                 android:layout_marginEnd="7dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:textStyle="bold"
                 android:text="Title"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorLight"
                 android:textAlignment="center"
                 android:textSize="21sp" />
 
@@ -64,10 +63,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="1dp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorLight"
                     android:textSize="16sp" />
-
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="2dp"
                     android:text="@string/Deadline"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorLight"
                     android:textSize="15sp" />
                 <TextView
                     android:id="@+id/deadlineTimeContent"
@@ -90,7 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="2dp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorLight"
                     android:textSize="15sp" />
             </LinearLayout>
 

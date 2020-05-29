@@ -20,8 +20,11 @@ import java.text.SimpleDateFormat
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.text.format.DateFormat
-
+import androidx.appcompat.widget.Toolbar
 import java.util.*
+
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -191,7 +194,7 @@ class MainActivity : AppCompatActivity() {
             val tpd = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{
                     timepicker,hour, minute ->
 
-                timeDeadline.setText(","+hour+":"+minute+" ")
+                timeDeadline.setText("Time : "+hour+":"+minute+" ")
             }, hour, minute,false)
             DateFormat.is24HourFormat(this)
             tpd.show()
